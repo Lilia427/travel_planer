@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Оплата{% endblock %}
+
+{% block content %}
+<h1>Оплата замовлення</h1>
+
+{% if order %}
+    <h2>Деталі замовлення</h2>
+    <ul>
+        <li><strong>Готель:</strong> {{ order.hotel.name }} — {{ order.hotel.price_per_night }} UAH/ніч</li>
+        <li><strong>Транспорт:</strong> {{ order.transport.type }} — {{ order.transport.price }} UAH</li>
+        <li><strong>Події:</strong>
+            <ul>
+                {% for event in order.events.all %}
+                    <li>{{ event.name }} — {{ event.price }} UAH</li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><strong>Загальна вартість:</strong> {{ total_price }} UAH</li>
+    </ul>
+
+    <form method="post" action="{% url 'success' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Завершити оплату</button>
+    </form>
+{% else %}
+    <p>У вас немає активних замовлень для оплати.</p>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Повернутися на головну</a>
+{% endif %}
+{% endblock %}

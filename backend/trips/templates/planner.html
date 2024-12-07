@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Ваш планер{% endblock %}
+
+{% block content %}
+<h2>Ваш планер</h2>
+{% if planner.events.exists %}
+<ul>
+    {% for event in planner.events.all %}
+    <li>
+        {{ event.name }} - {{ event.date }}
+        <button onclick="location.href='{% url 'add_event_to_order' event.id %}'" class="btn btn-primary">
+            Додати до замовлення
+        </button>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Ваш планер порожній.</p>
+{% endif %}
+{% endblock %}

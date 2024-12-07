@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Вибір подій{% endblock %}
+
+{% block content %}
+<h2>Виберіть події, готель і транспорт</h2>
+
+<h3>Події</h3>
+{% for event in events %}
+<div>
+    <h4>{{ event.name }}</h4>
+    <p>{{ event.description }}</p>
+    <p>Дата: {{ event.date }}</p>
+    <button onclick="location.href='{% url 'add_event_to_order' event.id %}'" class="btn btn-success">
+        Забронювати зараз
+    </button>
+    <button onclick="location.href='{% url 'add_event_to_planner' event.id %}'" class="btn btn-secondary">
+        Забронювати пізніше
+    </button>
+</div>
+{% endfor %}
+
+<h3>Готелі</h3>
+{% for hotel in hotels %}
+<div>
+    <h4>{{ hotel.name }}</h4>
+    <p>Ціна за ніч: {{ hotel.price_per_night }} грн</p>
+    <p>Відстань до центру: {{ hotel.distance_to_center }} км</p>
+    <button onclick="location.href='{% url 'add_hotel_to_order' hotel.id %}'" class="btn btn-success">
+        Забронювати
+    </button>
+</div>
+{% endfor %}
+
+<h3>Транспорт</h3>
+{% for transport in transport_options %}
+<div>
+    <h4>{{ transport.type }}</h4>
+    {% if transport.type == 'own' %}
+        <p>Власний транспорт — безкоштовно</p>
+    {% else %}
+        <p>Ціна: {{ transport.price }} грн</p>
+    {% endif %}
+    <button onclick="location.href='{% url 'add_transport_to_order' transport.id %}'" class="btn btn-success">
+        Обрати
+    </button>
+</div>
+{% endfor %}
+{% endblock %}
+

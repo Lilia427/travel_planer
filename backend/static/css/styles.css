@@ -1,0 +1,155 @@
+/* Загальні стилі для сайту */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Кнопки */
+button, .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Форми */
+form {
+    max-width: 600px;
+    margin: auto;
+}
+
+form input, form select, form button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Таблиці */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+/* Стилі для головної сторінки */
+.options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.option {
+    text-align: center;
+    width: 30%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.option h2 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.option p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.option .btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.option .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Додатковий стиль для мобільних пристроїв */
+@media (max-width: 768px) {
+    .options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .option {
+        width: 90%;
+    }
+}
